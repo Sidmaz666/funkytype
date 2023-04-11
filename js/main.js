@@ -224,7 +224,7 @@ function display_result({ wpm, accuracy, typed_words, mistakes }) {
 			</div>
 
 			<div class="p-2 pl-5 mt-2 mb-2">
-			<span class="text-gray-500">Accuray:</span>
+			<span class="text-gray-500">Accuracy:</span>
 			<span>${accuracy}</span>
 			</div>
 
