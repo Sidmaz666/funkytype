@@ -108,6 +108,10 @@ focus_element.addEventListener("keydown", function (e) {
     back_space();
     updateCursor();
   }
+  // Remove Instructions If not removed
+  if (document.querySelector("#result-report")) {
+    document.querySelector("#result-report").remove();
+  }
 });
 
 // Listen To Input
@@ -131,10 +135,6 @@ function keyboardAnimation(key) {
   updateCursor();
   // Start the Timer
   if (!hasTimerStarted && !hasTestFinished) start_countdown();
-  // Remove Instructions If not removed
-  if (document.querySelector("#result-report")) {
-    document.querySelector("#result-report").remove();
-  }
 }
 // Timer Function
 function start_countdown() {
