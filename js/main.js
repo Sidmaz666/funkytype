@@ -109,8 +109,8 @@ focus_element.addEventListener("keydown", function (e) {
     updateCursor();
   }
   // Remove Instructions If not removed
-  if (document.querySelector("#result-report")) {
-    document.querySelector("#result-report").remove();
+  if (document.querySelector("#instructions")) {
+    document.querySelector("#instructions").remove();
   }
 });
 
