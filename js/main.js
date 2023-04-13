@@ -6,6 +6,8 @@ const challenge_text = document.querySelector("#challenge-text");
 const typed_text = document.querySelector("#user-text");
 // Display Time Left
 const time_display = document.querySelector("#time-display");
+// Get Keypress Audio Element
+const keypress_sound = document.querySelector('#keypress-sound')
 // Track Index Of Each Character
 let charIndex = 0;
 // Timer Function
@@ -96,6 +98,7 @@ window.focusOn = focusOn;
 // Start Focusing When KeyPress is detected on the Body
 document.body.addEventListener("keydown", function (e) {
   focusOn();
+  keypress_sound.play()
 });
 
 // KeyDown Event For BackSpace
@@ -112,7 +115,7 @@ focus_element.addEventListener("input", function (e) {
   let key = e.data;
   key == " " ? (key = "space") : (key = e.data);
   if (/^[a-z]/.test(key) && key !== null && !hasTestFinished)
-    keyboardAnimation(key);
+    keyboardAnimation(key); 
 });
 
 // Animate Keyboard Letter
@@ -161,6 +164,12 @@ function calculate_wpm() {
   let typed_words = String(
     document.querySelector("#user-text").textContent.trim()
   ).split("\u00A0");
+  document.querySelectorAll('#user-text > span').forEach(e => {
+    if(e.classList.contains("text-red-500") && e.id !== "cursor" && e.textContent !== "\u00A0")
+    {
+        mistakes++
+    }
+})
   if (typed_words == "") {
     typed_words = 0;
   } else {
